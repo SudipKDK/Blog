@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBlog - Post</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <a class="brand" href="/index.html" aria-label="MyBlog - Go to homepage">MyBlog</a>
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/add-post.html" class="nav-link" id="addPostLink" style="display: none;">Add Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="dropdown" id="userDropdown" style="display: none;">
+                    <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        <div class="user-info">
+                            <div class="avatar" id="userAvatar">U</div>
+                            <span class="username" id="userName">User</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content" role="menu">
+                        <a href="/profile.html" class="dropdown-item" role="menuitem">Profile</a>
+                        <a href="/settings.html" class="dropdown-item" role="menuitem">Settings</a>
+                        <a href="#" id="logoutLink" class="dropdown-item" role="menuitem">Logout</a>
+                    </div>
+                </div>
+                <div id="authLinks" style="display: none;">
+                    <a href="/signup.html" class="nav-link">Create Account</a>
+                    <a href="/login.html" class="nav-link">Login</a>
+                </div>
+                <button type="button" class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle mobile menu">
+                    <span class="hamburger-icon" aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner" style="display: block;">
+            <div class="spinner"></div>
+            <p>Loading post...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message" style="display: none;">
+            <p id="errorText"></p>
+            <a href="/index.html" class="btn btn-secondary">Back to Home</a>
+        </div>
+
+        <!-- Post Content -->
+        <article id="postContent" class="post-detail" style="display: none;">
+            <!-- Post Header -->
+            <header class="post-header">
+                <h1 id="postTitle"></h1>
+                <div class="post-meta">
+                    <div class="author-info">
+                        <img id="authorAvatar" src="/images/default_pfp.png" alt="Author" class="avatar">
+                        <div>
+                            <span class="author-name" id="authorName"></span>
+                            <div class="post-date-views">
+                                <span id="postDate"></span>
+                                <span class="view-count">
+                                    <span>👁</span>
+                                    <span id="viewCount">0</span> views
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Edit/Delete buttons for post owner -->
+                    <div id="postActions" class="post-actions" style="display: none;">
+                        <button id="editPostBtn" class="btn btn-secondary btn-sm">Edit</button>
+                        <button id="deletePostBtn" class="btn btn-danger btn-sm">Delete</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Post Cover Image -->
+            <div id="postCoverContainer" class="post-cover" style="display: none;">
+                <img id="postCover" src="" alt="Post cover">
+            </div>
+
+            <!-- Post Body -->
+            <div class="post-body">
+                <div id="postBody"></div>
+            </div>
+
+            <!-- Back to Home -->
+            <div class="post-footer">
+                <a href="/index.html" class="btn btn-secondary">← Back to All Posts</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Scripts -->
+    <script src="/assets/js/toast.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/post.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBlog - Add New Post</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <a class="brand" href="/index.html" aria-label="MyBlog - Go to homepage">MyBlog</a>
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/add-post.html" class="nav-link active" aria-current="page">Add Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="dropdown" id="userDropdown">
+                    <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        <div class="user-info">
+                            <div class="avatar" id="userAvatar">U</div>
+                            <span class="username" id="userName">User</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content" role="menu">
+                        <a href="/profile.html" class="dropdown-item" role="menuitem">Profile</a>
+                        <a href="/settings.html" class="dropdown-item" role="menuitem">Settings</a>
+                        <a href="#" id="logoutLink" class="dropdown-item" role="menuitem">Logout</a>
+                    </div>
+                </div>
+                <button type="button" class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle mobile menu">
+                    <span class="hamburger-icon" aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+            <a href="/index.html" role="menuitem">Home</a>
+            <a href="/add-post.html" role="menuitem">Add Blog</a>
+            <a href="/profile.html" role="menuitem">Profile</a>
+            <a href="#" id="mobileLogoutLink" role="menuitem">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="post-form-container">
+            <h1>Create New Post</h1>
+            
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message" style="display: none;">
+                <p id="successText"></p>
+            </div>
+
+            <!-- Post Form -->
+            <form id="postForm" class="post-form">
+                <div class="form-row">
+                    <label for="title">Post Title</label>
+                    <input type="text" id="title" name="title" required maxlength="100">
+                </div>
+                
+                <div class="form-row">
+                    <label for="coverImage">Cover Image (Optional)</label>
+                    <input type="file" id="coverImage" name="coverImage" accept="image/*">
+                    <small class="form-help">Supported formats: JPEG, PNG, GIF, WebP. Max size: 5MB</small>
+                </div>
+                
+                <div class="form-row">
+                    <label for="body">Post Content</label>
+                    <textarea id="body" name="body" required minlength="50" rows="15"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Create Post</button>
+                </div>
+            </form>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Creating post...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/toast.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/add-post.js"></script>
+</body>
+</html>

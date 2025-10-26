@@ -1,0 +1,35 @@
+{
+  "name": "myblog",
+  "version": "2.0.0",
+  "description": "A modern full-stack blogging platform with Node.js, Express, MongoDB, and vanilla JavaScript",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog",
+    "nodejs",
+    "express",
+    "mongodb",
+    "rest-api",
+    "jwt",
+    "authentication"
+  ],
+  "author": "Sudip",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.2",
+    "multer": "^2.0.2"
+  }
+}

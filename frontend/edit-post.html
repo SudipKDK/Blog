@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBlog - Edit Post</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <a class="brand" href="/index.html" aria-label="MyBlog - Go to homepage">MyBlog</a>
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/add-post.html" class="nav-link" id="addPostLink" style="display: none;">Add Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="dropdown" id="userDropdown" style="display: none;">
+                    <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        <div class="user-info">
+                            <div class="avatar" id="userAvatar">U</div>
+                            <span class="username" id="userName">User</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content" role="menu">
+                        <a href="/profile.html" class="dropdown-item" role="menuitem">Profile</a>
+                        <a href="/settings.html" class="dropdown-item" role="menuitem">Settings</a>
+                        <a href="#" id="logoutLink" class="dropdown-item" role="menuitem">Logout</a>
+                    </div>
+                </div>
+                <div id="authLinks" style="display: none;">
+                    <a href="/signup.html" class="nav-link">Create Account</a>
+                    <a href="/login.html" class="nav-link">Login</a>
+                </div>
+                <button type="button" class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle mobile menu">
+                    <span class="hamburger-icon" aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="post-form-container">
+            <h1>Edit Post</h1>
+            
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: block;">
+                <div class="spinner"></div>
+                <p>Loading post...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message" style="display: none;">
+                <p id="successText"></p>
+            </div>
+
+            <!-- Edit Post Form -->
+            <form id="editPostForm" class="post-form" style="display: none;">
+                <div class="form-row">
+                    <label for="title">Post Title</label>
+                    <input type="text" id="title" name="title" required maxlength="100">
+                    <small class="form-help">
+                        <span id="titleCount">0</span>/100 characters
+                    </small>
+                </div>
+                
+                <div class="form-row">
+                    <label for="coverImage">Cover Image (Optional)</label>
+                    <input type="file" id="coverImage" name="coverImage" accept="image/*">
+                    <small class="form-help">Current cover image will be kept if you don't select a new one. Max size: 5MB</small>
+                    <div id="currentCover" style="margin-top: 1rem; display: none;">
+                        <p style="margin-bottom: 0.5rem; font-weight: 500; color: var(--text);">Current Cover:</p>
+                        <img id="currentCoverImg" src="" alt="Current cover" style="max-width: 300px; border-radius: 8px; border: 1px solid var(--border); display: block;">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <label for="body">Post Content</label>
+                    <textarea id="body" name="body" required minlength="10" rows="15" maxlength="5000"></textarea>
+                    <small class="form-help">
+                        <span id="bodyCount">0</span>/5000 characters
+                    </small>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Update Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/toast.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/edit-post.js"></script>
+</body>
+</html>
+

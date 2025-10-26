@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBlog - Profile</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <a class="brand" href="/index.html" aria-label="MyBlog - Go to homepage">MyBlog</a>
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/add-post.html" class="nav-link">Add Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="dropdown" id="userDropdown">
+                    <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        <div class="user-info">
+                            <div class="avatar" id="userAvatar">U</div>
+                            <span class="username" id="userName">User</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content" role="menu">
+                        <a href="/profile.html" class="dropdown-item active" role="menuitem">Profile</a>
+                        <a href="/settings.html" class="dropdown-item" role="menuitem">Settings</a>
+                        <a href="#" id="logoutLink" class="dropdown-item" role="menuitem">Logout</a>
+                    </div>
+                </div>
+                <button type="button" class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle mobile menu">
+                    <span class="hamburger-icon" aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+            <a href="/index.html" role="menuitem">Home</a>
+            <a href="/add-post.html" role="menuitem">Add Blog</a>
+            <a href="/profile.html" role="menuitem">Profile</a>
+            <a href="#" id="mobileLogoutLink" role="menuitem">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="profile-container">
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading profile...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+
+            <!-- Profile Header -->
+            <div class="profile-header" id="profileHeader" style="display: none;">
+                <div class="profile-avatar">
+                    <div class="avatar-large" id="profileAvatar">U</div>
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name" id="profileName">Username</h1>
+                    <p class="profile-email" id="profileEmail">user@example.com</p>
+                    <span class="profile-role" id="profileRole">Member</span>
+                </div>
+            </div>
+
+            <!-- Profile Stats -->
+            <div class="profile-stats" id="profileStats" style="display: none;">
+                <div class="stat-card">
+                    <h3>Total Posts</h3>
+                    <p class="stat-number" id="postCount">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Views</h3>
+                    <p class="stat-number" id="totalViews">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Member Since</h3>
+                    <p class="stat-date" id="memberSince">-</p>
+                </div>
+            </div>
+
+            <!-- User Posts -->
+            <div class="user-posts" id="userPosts" style="display: none;">
+                <h2>Your Recent Posts</h2>
+                <div class="posts-grid" id="postsGrid">
+                    <!-- Posts will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/toast.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/profile.js"></script>
+</body>
+</html>

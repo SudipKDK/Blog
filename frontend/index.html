@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBlog - Home</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <a class="brand" href="/index.html" aria-label="MyBlog - Go to homepage">MyBlog</a>
+                <a href="/index.html" class="nav-link active" aria-current="page">Home</a>
+                <a href="/add-post.html" class="nav-link" id="addPostLink" style="display: none;">Add Blog</a>
+            </div>
+            <div class="nav-actions">
+                <div class="dropdown" id="userDropdown" style="display: none;">
+                    <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        <div class="user-info">
+                            <div class="avatar" id="userAvatar">U</div>
+                            <span class="username" id="userName">User</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-content" role="menu">
+                        <a href="/profile.html" class="dropdown-item" role="menuitem">Profile</a>
+                        <a href="/settings.html" class="dropdown-item" role="menuitem">Settings</a>
+                        <a href="#" id="logoutLink" class="dropdown-item" role="menuitem">Logout</a>
+                    </div>
+                </div>
+                <div id="authLinks" style="display: none;">
+                    <a href="/signup.html" class="nav-link">Create Account</a>
+                    <a href="/login.html" class="nav-link">Login</a>
+                </div>
+                <button type="button" class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle mobile menu">
+                    <span class="hamburger-icon" aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+            <a href="/index.html" role="menuitem">Home</a>
+            <a href="/add-post.html" role="menuitem" id="mobileAddPostLink" style="display: none;">Add Blog</a>
+            <a href="/profile.html" role="menuitem" id="mobileProfileLink" style="display: none;">Profile</a>
+            <a href="#" id="mobileLogoutLink" role="menuitem" style="display: none;">Logout</a>
+            <a href="/signup.html" role="menuitem" id="mobileSignupLink" style="display: none;">Create Account</a>
+            <a href="/login.html" role="menuitem" id="mobileLoginLink" style="display: none;">Login</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Search Section -->
+        <div class="search-container">
+            <form class="search-form" id="searchForm">
+                <div class="search-input-group">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search posts..." value="">
+                    <button type="submit" class="search-btn">Search</button>
+                </div>
+                <a href="#" class="clear-search" id="clearSearch" style="display: none;">Clear search</a>
+            </form>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="grid" id="postsGrid">
+            <!-- Posts will be loaded here dynamically -->
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading posts...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message" style="display: none;">
+            <p>Failed to load posts. Please try again.</p>
+        </div>
+
+        <!-- No Posts Message -->
+        <div id="noPostsMessage" class="no-posts-message" style="display: none;">
+            <p>No posts found.</p>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prevPage" class="btn btn-secondary" disabled>Previous</button>
+            <span class="pagination-info" id="paginationInfo">Page 1 of 1</span>
+            <button id="nextPage" class="btn btn-secondary" disabled>Next</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/toast.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/home.js"></script>
+</body>
+</html>
